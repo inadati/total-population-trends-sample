@@ -4,7 +4,6 @@ import cache from '../cache'
 // resolver
 export default async pref => {
 
-
     if(!pref.isLoadedChartSeries){
         let res = await client.req(
             `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=${pref.id}`
