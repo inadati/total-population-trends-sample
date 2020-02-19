@@ -1,21 +1,17 @@
-const GQLKIT_SERVER_ENDPOINT = process.env.GQLKIT_SERVER_ENDPOINT || 'http://localhost:8080/query'
-const method = 'POST'
+const method = 'GET'
 const headers = {
     'Content-Type': 'application/json',
-    Accept: 'application/json'
+    Accept: 'application/json',
+    'X-API-KEY': process.env.RESAS_API_KEY
 }
 
 export default {
-    async req(demand, variables) {
-        const res = await fetch(GQLKIT_SERVER_ENDPOINT, {
+    async req(endpoint) {
+        const res = await fetch(endpoint, {
             method,
-            headers,
-            body: JSON.stringify({
-                query: demand.loc.source.body,
-                variables
-            })
+            headers
         })
-        const { data } = await res.json()
-        return data
+        const { result } = await res.json()
+        return result
     }
 }

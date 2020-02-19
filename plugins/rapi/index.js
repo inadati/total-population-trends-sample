@@ -1,12 +1,14 @@
-import example from './resolvers/Query/example'
-import mutateExample from './resolvers/Mutation/mutateExample'
+import readChartCategories from './resolvers/Query/readChartCategories'
+import readPrefs from './resolvers/Query/readPrefs'
+import updateChartSeries from './resolvers/Mutation/updateChartSeries'
 
 export const rapi = {
     Query: {
-        example
+        readPrefs,
+        readChartCategories
     },
     Mutation: {
-        mutateExample
+        updateChartSeries
     }
 }
 
